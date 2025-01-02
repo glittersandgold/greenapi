@@ -53,3 +53,4 @@ async function sendMessage() {
         document.getElementById("response").textContent = "Ошибка при выполнении запроса.";
     }
 }
+document.getElementById("sendMessage").addEventListener("click", sendMessage);
