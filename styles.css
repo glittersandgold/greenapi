@@ -13,7 +13,7 @@ body {
     display: flex;
     width: 80%;
     max-width: 800px;
-    background: #fff;
+    background: #acd8a9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -37,7 +37,7 @@ body {
   .form button {
     padding: 10px;
     border: none;
-    background-color: #007bff;
+    background-color: #54a37f;
     color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -59,7 +59,7 @@ body {
   
   #response {
     border: 1px solid #ddd;
-    background: #f8f8f8;
+    background: #f2ffeb;
     padding: 10px;
     height: 100%;
     overflow-y: auto;
