@@ -26,4 +26,4 @@ async function getStateInstance() {
       document.getElementById("response").textContent = "Ошибка при выполнении запроса.";
     }
   }
-  document.getElementById("getStateInstance").addEventListener("click", getStateInstance);
+document.getElementById("getStateInstance").addEventListener("click", getStateInstance);
