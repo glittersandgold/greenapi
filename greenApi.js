@@ -43,7 +43,7 @@ async function sendMessage() { // Объявляем асинхронную фу
         if (!apiTokenInstance) {
             emptyFields.push("API Token");
         }
-        if (!chatId) {
+        if (!phoneNumber) {
             emptyFields.push("Phone Number");
         }
         if (!message) {
@@ -88,7 +88,7 @@ async function sendFileByUrl() { // Объявляем асинхронную ф
         if (!apiTokenInstance) {
             emptyFields.push("API Token");
         }
-        if (!chatId) {
+        if (!phoneNumber) {
             emptyFields.push("Phone Number");
         }
         if (!urlFile) {
