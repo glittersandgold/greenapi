@@ -31,10 +31,10 @@ document.getElementById("getStateInstance").addEventListener("click", getStateIn
 async function sendMessage() { // Объявляем асинхронную функцию sendMessage() для выполнения POST-запроса
     const idInstance = document.getElementById("idInstance").value;
     const apiTokenInstance = document.getElementById("apiTokenInstance").value;
-    const chatId = document.getElementById("phoneNumber").value + "@c.us";
+    const phoneNumber = document.getElementById("phoneNumber").value;
     const message = document.getElementById("message").value;
 
-    if (!idInstance || !apiTokenInstance || !chatId || !message) { // Проверяем заполненность полей
+    if (!idInstance || !apiTokenInstance || !phoneNumber || !message) { // Проверяем заполненность полей
         const emptyFields = []; // Создаем пустой массив, куда будем класть названия незаполненных полей
         // Проверяем каждое поле и добавляем его имя в массив, если оно пустое    
         if (!idInstance) {
@@ -52,7 +52,7 @@ async function sendMessage() { // Объявляем асинхронную фу
         document.getElementById("response").textContent = `Пожалуйста, заполните следующие поля: ${emptyFields.join(", ")}`;
         return;
     }
-
+    const chatId = phoneNumber + "@c.us"; // Формируем chatId только после проверки
     try {
         const response = await fetch(`${apiUrl}/waInstance${idInstance}/sendMessage/${apiTokenInstance}`, { // Отправляем POST-запрос на сервер GreenAPI с помощью fetch
             method: "POST",
@@ -77,10 +77,10 @@ document.getElementById("sendMessage").addEventListener("click", sendMessage);
 async function sendFileByUrl() { // Объявляем асинхронную функцию sendFileByUrl() для выполнения POST-запроса
     const idInstance = document.getElementById("idInstance").value;
     const apiTokenInstance = document.getElementById("apiTokenInstance").value;
-    const chatId = document.getElementById("phoneNumber").value + "@c.us";
+    const phoneNumber = document.getElementById("phoneNumber").value;
     const urlFile = document.getElementById("fileUrl").value;
 
-    if (!idInstance || !apiTokenInstance || !chatId || !urlFile) {
+    if (!idInstance || !apiTokenInstance || !phoneNumber || !urlFile) {
         const emptyFields = [];
         if (!idInstance) {
             emptyFields.push("ID Instance");
@@ -97,7 +97,7 @@ async function sendFileByUrl() { // Объявляем асинхронную ф
         document.getElementById("response").textContent = `Пожалуйста, заполните следующие поля: ${emptyFields.join(", ")}`;
         return;
     }
-
+    const chatId = phoneNumber + "@c.us"; // Формируем chatId только после проверки
     // Извлекаем имя файла из URL
     const fileName = urlFile.split('/').pop(); // Возьмём всё после последнего "/"
     const caption = `Файл: ${fileName}`; // Создаём подпись на основе имени файла
