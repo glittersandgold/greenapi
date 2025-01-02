@@ -27,3 +27,32 @@ async function getStateInstance() {
     }
   }
 document.getElementById("getStateInstance").addEventListener("click", getStateInstance);
+
+async function sendMessage() {
+    const idInstance = document.getElementById("idInstance").value;
+    const apiTokenInstance = document.getElementById("apiTokenInstance").value;
+    const chatId = document.getElementById("phoneNumber").value + "@c.us"; // Получение номера телефона
+    const message = document.getElementById("message").value; // Получение текста сообщения
+  
+    const url = `${apiUrl}/waInstance${idInstance}/sendMessage/${apiTokenInstance}`;
+  
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chatId: chatId,
+          message: message,
+        }),
+      });
+  
+      const data = await response.json();
+      console.log(data);
+      document.getElementById("response").textContent = JSON.stringify(data, null, 2);
+    } catch (error) {
+      console.error("Ошибка при выполнении запроса:", error);
+      document.getElementById("response").textContent = "Ошибка при выполнении запроса.";
+    }
+  }
