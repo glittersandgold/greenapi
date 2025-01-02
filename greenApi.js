@@ -35,7 +35,21 @@ async function sendMessage() { // Объявляем асинхронную фу
     const message = document.getElementById("message").value;
 
     if (!idInstance || !apiTokenInstance || !chatId || !message) { // Проверяем заполненность полей
-        document.getElementById("response").textContent = "Пожалуйста, заполните все поля.";
+        const emptyFields = []; // Создаем пустой массив, куда будем класть названия незаполненных полей
+        // Проверяем каждое поле и добавляем его имя в массив, если оно пустое    
+        if (!idInstance) {
+            emptyFields.push("ID Instance");
+        }
+        if (!apiTokenInstance) {
+            emptyFields.push("API Token");
+        }
+        if (!chatId) {
+            emptyFields.push("Phone Number");
+        }
+        if (!message) {
+            emptyFields.push("Message");
+        }
+        document.getElementById("response").textContent = `Пожалуйста, заполните следующие поля: ${emptyFields.join(", ")}`;
         return;
     }
 
@@ -67,7 +81,20 @@ async function sendFileByUrl() { // Объявляем асинхронную ф
     const urlFile = document.getElementById("fileUrl").value;
 
     if (!idInstance || !apiTokenInstance || !chatId || !urlFile) {
-        document.getElementById("response").textContent = "Пожалуйста, заполните все поля.";
+        const emptyFields = [];
+        if (!idInstance) {
+            emptyFields.push("ID Instance");
+        }
+        if (!apiTokenInstance) {
+            emptyFields.push("API Token");
+        }
+        if (!chatId) {
+            emptyFields.push("Phone Number");
+        }
+        if (!urlFile) {
+            emptyFields.push("file URL");
+        }
+        document.getElementById("response").textContent = `Пожалуйста, заполните следующие поля: ${emptyFields.join(", ")}`;
         return;
     }
 
