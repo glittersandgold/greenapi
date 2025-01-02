@@ -75,7 +75,7 @@ async function sendFileByUrl() { // Объявляем асинхронную ф
     const fileName = urlFile.split('/').pop(); // Возьмём всё после последнего "/"
     const caption = `Файл: ${fileName}`; // Создаём подпись на основе имени файла
 
-    const payload = {
+    const payload = { // Создаем объект payload для удобной отправки значений
         chatId: chatId,
         urlFile: urlFile,
         fileName: fileName,
